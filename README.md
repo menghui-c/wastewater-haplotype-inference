@@ -142,9 +142,9 @@ We compute:
 - Posterior mean $\pm$ 95% credible intervals for top-\(K\) haplotypes
 - ALT allele posterior traces
   
-  $$
-  f_j^{(t)} = \sum_h a_{hj} p_h^{(t)}
-  $$
+$$
+f_j^{(t)} = \sum_{h=1}^H a_{hj}\, p_h^{(t)}
+$$
 
 ---
 
@@ -167,7 +167,7 @@ consensus_panel:                     # used by consensus_based_pipeline.sh
 ├─ consensus_haplotype_freq.py              # compute panel-based haplotype frequencies as priors
 
 inference:                         
-├─ gibbs_sampler.py  # whole collapsed Gibbs sampler code for haplotype inference
+├─ gibbs_sampler.py                  # whole collapsed Gibbs sampler code for haplotype inference
 ```
 
 ---
