@@ -1,6 +1,8 @@
 # 🧬 Wastewater Haplotype Inference
 **Bayesian haplotype inference using short-read viral sequencing data from wastewater samples**
 
+![Pipeline diagram](images/workflow.jpg)
+
 ---
 
 ## 📖 Overview
@@ -170,7 +172,7 @@ inference:
 
 ## 🧩 Workflow
 
-![Pipeline diagram](images/workflow.png)
+![Pipeline diagram](images/workflow.jpg)
 
 **Step 1.** Reads alignment → call SNVs → summarize read patterns  
 **Step 2.** Consensus genomes alignment → compute panel imformative prior  
