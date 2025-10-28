@@ -22,13 +22,7 @@ This project implements a Bayesian framework to infer viral haplotype frequencie
 
 ### Compatibility and pattern probabilities
 
-Let 
-
-$$
-C \in \{0,1\}^{R\times H}
-$$ 
-
-be the compatibility matrix: 
+Let $C \in \{0,1\}^{R\times H}$ be the compatibility matrix: 
 
 $$
 C_{rh} =
@@ -43,13 +37,12 @@ Define
 $$
 A_{rh}=\frac{C_{rh}}{Z_h},\qquad
 Z_h=\sum_{r=1}^R C_{rh},\qquad
-\sum_{r=1}^R A_{rh}=1.
+\sum_{r=1}^R A_{rh}=1 for each h.
 $$
 
-Under haplotype $h$, all compatible patterns share equal probability.
 Let $\mathbf p=(p_1,\dots,p_H)^\top$ denote haplotype frequencies on the $H$-simplex.
 
-The induced pattern distribution is
+The pattern distribution is
 
 $$
 \mathbf q = A\\mathbf p,\qquad
