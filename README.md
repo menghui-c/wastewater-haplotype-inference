@@ -139,8 +139,9 @@ $n_{\text{iter}}=10^5$, burn-in $B=2\times10^4$, no thinning, fixed seeds.
 We compute:
 - Log-posterior traces
 - $\hat R$ convergence diagnostic
-- Posterior mean $\pm$ 95% credible intervals for top-$K$ haplotypes
+- Posterior mean $\pm$ 95% credible intervals for top-\(K\) haplotypes
 - ALT allele posterior traces
+  
   $$
   f_j^{(t)} = \sum_h a_{hj} p_h^{(t)}
   $$
@@ -148,16 +149,16 @@ We compute:
 ---
 
 ## ⚙️ Pipeline structure
-├── read_based_pipeline.sh         # End-to-end SNV extraction and pattern encoding
-├── consensus_based_pipeline.sh    # Consensus panel prior generation
-├── get_snvs.py                    # SNV extraction via LoFreq
+├── read_based_pipeline.sh         # Read-based SNV and Encoding pipeline
+├── consensus_based_pipeline.sh    # Consensus Panel Prior pipeline
+├── get_snvs.py                    # SNV extraction through LoFreq
 ├── filter_lofreq_vcf.py           # Variant filtering (VAF, RAF, DP)
-├── extract_snv_table.py           # Generate variant summary table
-├── read_encoding.py               # Encode read patterns {0,1,-}
+├── extract_snv_table.py           # Generate SNVs summary table
+├── read_encoding.py               # Get read patterns {0,1,-}
+├── compute_haplotype_freqs_allele.py       # Compute data-based initial haplotype frequencies
 ├── consensus_summarize_variant_alleles.py  # Summarize consensus allele frequencies
-├── consensus_haplotype_freq.py    # Compute panel-derived haplotype priors
-├── compute_haplotype_freqs_allele.py       # Aggregate allele-level frequency estimates
-├── gibbs_sampler.py               # Collapsed Gibbs sampler for haplotype inference
+├── consensus_haplotype_freq.py    # Compute panel-based haplotype frequencies as priors
+├── gibbs_sampler.py               # Whole collapsed Gibbs sampler code for haplotype inference
 
 ---
 
@@ -165,8 +166,8 @@ We compute:
 
 ![Pipeline diagram](images/pipeline_workflow.png)
 
-**Step 1.** Map reads with BWA → call SNVs with LoFreq → summarize read patterns  
-**Step 2.** Align consensus genomes with MAFFT → compute panel prior  
+**Step 1.** Reads alignment → call SNVs → summarize read patterns  
+**Step 2.** Consensus genomes alignment → compute panel imformative prior  
 **Step 3.** Run Gibbs sampler to infer posterior haplotype frequencies  
 **Step 4.** Summarize diagnostics and credible intervals  
 
@@ -206,7 +207,6 @@ Single-end
   --outdir results/read_based_output
 
 # Step 2. Run consensus-panel pipeline
-```bash
 chmod +x consensus_based_pipeline.sh
 ./consensus_based_pipeline.sh \
   -r reference.fasta \
@@ -216,27 +216,24 @@ chmod +x consensus_based_pipeline.sh
   [-o outdir]
 
 # Step 3. Perform Gibbs sampling
+```
+
+---
 
 ## 📊 Dependencies
 	•	Python ≥ 3.11
 	•	NumPy, SciPy, Pandas, Matplotlib
 	•	BWA, MAFFT, LoFreq
 	•	Bash ≥ 4.0
+	
+---
 
 ## 🧑‍💻 Implementation details
 
 All computations are vectorized with NumPy and sparse matrix operations in SciPy.
 The compatibility matrix (C) is stored in CSR format, and the log-likelihood term is efficiently computed via sparse–dense multiplication.
-
-## 📚 References
-	•	Bernardo, J. M., & Smith, A. F. M. (1994). Bayesian Theory.
-	•	Tanner, M. A., & Wong, W. H. (1987). The calculation of posterior distributions by data augmentation. JASA.
-	•	Liu, J. S. (1994). Collapsed Gibbs sampling and other variance-reduction techniques. JASA.
-	•	Morita et al. (2008). Determining the effective sample size of a Dirichlet prior.
-	•	Elbe & Buckland-Merrett (2017). GISAID: Global initiative on sharing all influenza data.
-	•	Katoh & Standley (2013). MAFFT multiple sequence alignment software.
-	•	Li & Durbin (2009). BWA: Burrows–Wheeler Aligner.
-	•	Wilm et al. (2012). LoFreq: sensitive variant calling for low-frequency variants.
+	
+---
 
 ## 📬 Contact
 
