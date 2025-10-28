@@ -170,7 +170,7 @@ inference:
 
 ## 🧩 Workflow
 
-![Pipeline diagram](images/pipeline_workflow.png)
+![Pipeline diagram](images/workflow.png)
 
 **Step 1.** Reads alignment → call SNVs → summarize read patterns  
 **Step 2.** Consensus genomes alignment → compute panel imformative prior  
