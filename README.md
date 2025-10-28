@@ -138,13 +138,9 @@ $n_{\text{iter}}=10^5$, burn-in $B=2\times10^4$, no thinning, fixed seeds.
 
 We compute:
 - Log-posterior traces
-- $\hat R$ convergence diagnostic
-- Posterior mean $\pm$ 95% credible intervals for top-\(K\) haplotypes
-- ALT allele posterior traces
-  
-$$
-f_j^{(t)} = \sum_{h=1}^H a_{hj}\, p_h^{(t)}
-$$
+- Gelman--Rubin statistic $\hat R$ convergence diagnostic
+- Posterior mean $\pm$ 95% credible intervals for top-\(K\) haplotypes (ranked by posterior mean frequency)
+- ALT allele posterior frequency traces
 
 ---
 
