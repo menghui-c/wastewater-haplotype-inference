@@ -148,17 +148,24 @@ We compute:
 
 ---
 
-## ⚙️ Pipeline structure
-├── read_based_pipeline.sh         # Read-based SNV and Encoding pipeline <br>
-├── consensus_based_pipeline.sh    # Consensus Panel Prior pipeline <br>
-├── get_snvs.py                    # SNV extraction through LoFreq <br>
-├── filter_lofreq_vcf.py           # Variant filtering (VAF, RAF, DP) <br>
-├── extract_snv_table.py           # Generate SNVs summary table <br>
-├── read_encoding.py               # Get read patterns {0,1,-} <br>
-├── compute_haplotype_freqs_allele.py       # Compute data-based initial haplotype frequencies <br>
-├── consensus_summarize_variant_alleles.py  # Summarize consensus allele frequencies <br>
-├── consensus_haplotype_freq.py    # Compute panel-based haplotype frequencies as priors <br>
-├── gibbs_sampler.py               # Whole collapsed Gibbs sampler code for haplotype inference <br>
+## ⚙️ Code structure
+pipelines/
+├─ read_based_pipeline.sh            # End-to-end: Read-based SNV and Encoding pipeline
+├─ consensus_based_pipeline.sh       # End-to-end: Consensus Panel Prior pipeline
+
+read_based:                         # used by read_based_pipeline.sh
+├─ get_snvs.py                       # call SNVs (LoFreq)
+├─ filter_lofreq_vcf.py              # filter by VAF/RAF/DP
+├─ extract_snv_table.py              # build SNVs summary table
+├─ read_encoding.py                  # encode read patterns {0,1,-}
+├── compute_haplotype_freqs_allele.py       # compute data-based initial haplotype frequencies
+
+consensus_panel:                     # used by consensus_based_pipeline.sh
+├─ consensus_summarize_variant_alleles.py  # summarize per-site allele counts from panel
+├─ consensus_haplotype_freq.py              # compute panel-based haplotype frequencies as priors <br>
+
+inference:                           
+├─ gibbs_sampler.py  # whole collapsed Gibbs sampler code for haplotype inference
 
 ---
 
