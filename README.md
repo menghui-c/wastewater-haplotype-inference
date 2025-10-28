@@ -37,8 +37,10 @@ Define
 $$
 A_{rh}=\frac{C_{rh}}{Z_h},\qquad
 Z_h=\sum_{r=1}^R C_{rh},\qquad
-\sum_{r=1}^R A_{rh}=1 for each h.
+\sum_{r=1}^R A_{rh}=1
 $$
+
+for each $h$.
 
 Let $\mathbf p=(p_1,\dots,p_H)^\top$ denote haplotype frequencies on the $H$-simplex.
 
@@ -54,11 +56,13 @@ $$
 ### Read-pattern likelihood
 
 Given $\mathbf p$, the pattern counts follow a multinomial model:
+
 $$
 \mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\,\mathbf q),
 $$
 
-with log-likelihood (ignoring constants):
+and the log-likelihood (ignoring constants) is:
+
 $$
 \ell(\mathbf p;\mathbf k) = \sum_{r=1}^R k_r \log q_r = \mathbf k^\top \log(A\mathbf p).
 $$
