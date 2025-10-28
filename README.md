@@ -149,23 +149,26 @@ We compute:
 ---
 
 ## ⚙️ Code structure
-pipelines/ <br>
-├─ read_based_pipeline.sh            # End-to-end: Read-based SNV and Encoding pipeline <br>
-├─ consensus_based_pipeline.sh       # End-to-end: Consensus Panel Prior pipeline <br>
 
-read_based:                         # used by read_based_pipeline.sh <br>
-├─ get_snvs.py                       # call SNVs (LoFreq) <br>
-├─ filter_lofreq_vcf.py              # filter by VAF/RAF/DP <br>
-├─ extract_snv_table.py              # build SNVs summary table <br>
-├─ read_encoding.py                  # encode read patterns {0,1,-} <br>
-├── compute_haplotype_freqs_allele.py       # compute data-based initial haplotype frequencies <br>
+```text
+pipelines/
+├─ read_based_pipeline.sh            # End-to-end: Read-based SNV and Encoding pipeline
+├─ consensus_based_pipeline.sh       # End-to-end: Consensus Panel Prior pipeline
 
-consensus_panel:                     # used by consensus_based_pipeline.sh <br>
-├─ consensus_summarize_variant_alleles.py  # summarize per-site allele counts from panel <br>
-├─ consensus_haplotype_freq.py              # compute panel-based haplotype frequencies as priors <br>
+read_based:                         # used by read_based_pipeline.sh
+├─ get_snvs.py                       # call SNVs (LoFreq)
+├─ filter_lofreq_vcf.py              # filter by VAF/RAF/DP
+├─ extract_snv_table.py              # build SNVs summary table
+├─ read_encoding.py                  # encode read patterns {0,1,-}
+├── compute_haplotype_freqs_allele.py       # compute data-based initial haplotype frequencies
+
+consensus_panel:                     # used by consensus_based_pipeline.sh
+├─ consensus_summarize_variant_alleles.py  # summarize per-site allele counts from panel
+├─ consensus_haplotype_freq.py              # compute panel-based haplotype frequencies as priors
 
 inference:                         
-├─ gibbs_sampler.py  # whole collapsed Gibbs sampler code for haplotype inference <br>
+├─ gibbs_sampler.py  # whole collapsed Gibbs sampler code for haplotype inference
+```
 
 ---
 
@@ -238,7 +241,7 @@ chmod +x consensus_based_pipeline.sh
 ## 🧑‍💻 Implementation details
 
 All the calculations are vectorized using sparse matrix operations in NumPy and SciPy. The compatibility matrix (C) is stored in CSR format, and the log-likelihood terms are efficiently calculated through sparse-dense multiplication.
-	
+
 ---
 
 ## 📬 Contact
