@@ -5,8 +5,7 @@
 
 ## 📖 Overview
 
-This repository implements a Bayesian framework for inferring viral haplotype frequencies from wastewater metagenomic sequencing data.  
-The pipeline integrates both **read-based** and **consensus-panel–based** preprocessing workflows to construct compatible read-pattern matrices, followed by **collapsed Gibbs sampling** for posterior inference of haplotype frequencies.
+This project implements a Bayesian framework to infer viral haplotype frequencies from deep-sequenced SARS-CoV-2 wastewater data. We first run two workflows to precompute the fixed inputs for inference: (1) read based SNV and encoding pipeline and (2) consensus panel prior pipeline. Then a collapsed Gibbs sampler is used to estimate the haplotype frequencies.
 
 ---
 
@@ -14,13 +13,10 @@ The pipeline integrates both **read-based** and **consensus-panel–based** prep
 
 ### Data and notation
 
-We consider a deep-sequenced wastewater sample with $J$ biallelic variable sites indexed by $j=1,\dots,J$.  
-Each site has a reference allele (REF) and an alternate allele (ALT).  
-A haplotype $h\in\{1,\dots,H\}$ is a length-$J$ allele vector across all sites; with biallelic sites, $H=2^J$.
-
-Short reads are grouped into read patterns $r=1,\dots,R$.  
-Each pattern is a string of length $J$ over $\{0,1,-\}$, where `0` indicates REF, `1` ALT, and “–” means not covered.  
-Let $k_r$ denote the number of reads with pattern $r$ and $\sum_{r=1}^R k_r=N$.
+* A Deep sequenced wastewater sample with $J$ biallelic sites is indexed by $j=1,\dots,J$.
+* Each site has REF/ALT alleles; a haplotype $h\in\{1,\dots,H\}$ is a length $J$ allele vector; with biallelic sites, $H=2^J$.
+* Short reads are grouped into **read patterns** $r=1,\dots,R$; each pattern is a length $J$ string over `\\{0,1,-\\}`(`0` = REF, `1` = ALT,  = not covered).
+* Let $k_r$ be the number of reads with pattern $r$; $\sum_{r=1}^R k_r = N$. Write $\mathbf{k}=(k_1,\dots,k_R)^\top$.
 
 ---
 
