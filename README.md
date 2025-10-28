@@ -164,7 +164,7 @@ consensus_panel:                     # used by consensus_based_pipeline.sh <br>
 ├─ consensus_summarize_variant_alleles.py  # summarize per-site allele counts from panel <br>
 ├─ consensus_haplotype_freq.py              # compute panel-based haplotype frequencies as priors <br>
 
-inference: <br>                           
+inference:                         
 ├─ gibbs_sampler.py  # whole collapsed Gibbs sampler code for haplotype inference <br>
 
 ---
