@@ -48,7 +48,7 @@ The pattern distribution is
 
 $$
 \mathbf q = A\\mathbf p,\qquad
-q_r=\sum_{h=1}^H A_{rh}\,p_h.
+q_r=\sum_{h=1}^H A_{rh}\p_h.
 $$
 
 ---
@@ -58,7 +58,7 @@ $$
 Given $\mathbf p$, the pattern counts follow a multinomial model:
 
 $$
-\mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\,\mathbf q),
+\mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\\mathbf q),
 $$
 
 and the log-likelihood (without constants) is:
