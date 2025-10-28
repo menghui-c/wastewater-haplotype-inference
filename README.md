@@ -122,7 +122,7 @@ There are two parallel chains:
 - **Data-based initialization:** uses empirical sitewise ALT frequencies $\hat f_j$.  
 - **Uniform initialization:** $\mathbf p^{(0)} = \tfrac{1}{H}\mathbf 1$.  
 
-Each iteration enforces:
+At each iteration, we set:
 
 $$
 p_h \leftarrow \max(p_h,\varepsilon), \quad 
