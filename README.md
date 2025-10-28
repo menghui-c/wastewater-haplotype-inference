@@ -1,7 +1,7 @@
 # 🧬 Wastewater Haplotype Inference
 **Bayesian haplotype inference using short-read viral sequencing data from wastewater samples**
 
-![Pipeline diagram](images/workflow.jpg)
+![illustrative diagram](images/simple_illu.png)
 
 ---
 
