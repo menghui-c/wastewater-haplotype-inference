@@ -14,7 +14,7 @@ This project implements a Bayesian framework to infer viral haplotype frequencie
 ### Data and notation
 
 * A Deep sequenced wastewater sample with $J$ biallelic sites is indexed by $j=1,\dots,J$.
-* Each site has REF/ALT alleles; a haplotype $h \in \{1,\ldots,H\}$ is a length $J$ allele vector; with biallelic sites, $H=2^J$.
+* Each site has REF/ALT alleles; a haplotype $h \in \lbrace 1,\ldots,H \rbrace$ is a length $J$ allele vector; with biallelic sites, $H=2^J$.
 * Short reads are grouped into **read patterns** $r=1,\dots,R$; each pattern is a length $J$ string over `{0,1,-}`(`0` = REF, `1` = ALT,  = not covered).
 * Let $k_r$ be the number of reads with pattern $r$; $\sum_{r=1}^R k_r = N$. Write $\mathbf{k}=(k_1,\dots,k_R)^\top$.
 
