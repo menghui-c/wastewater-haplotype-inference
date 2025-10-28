@@ -119,7 +119,7 @@ This results in a **collapsed Gibbs sampler** with Dirichlet–multinomial conju
 ### Initialization, constraints, reproducibility
 
 There are two parallel chains:
-- **Data-based initialization:** product over sites: \hat f_j for ALT allele frequency, 1-\hat f_j for REF; 
+- **Data-based initialization:** product over sites: $\hat f_j$ for ALT allele frequency, $1-\hat f_j$ for REF; 
 - **Uniform initialization:** $\mathbf p^{(0)} = \tfrac{1}{H}\mathbf 1$.  
 
 At each iteration, we set:
