@@ -96,7 +96,7 @@ Our model alternates between these two steps:
    
 $$
 (y_{r1},\dots,y_{rH})|\mathbf p
-\sim \mathrm{Multinomial}\!\big(k_r;\, w_{r1},\dots,w_{rH}\big),
+\sim \mathrm{Multinomial}\\big(k_r;\ w_{r1},\dots,w_{rH}\big),
 \quad
 w_{rh} = \frac{A_{rh}p_h}{q_r}.
 $$
