@@ -47,8 +47,8 @@ Let $\mathbf p=(p_1,\dots,p_H)^\top$ denote haplotype frequencies on the $H$-sim
 The pattern distribution is
 
 $$
-\mathbf q = A\mathbf p \\
-q_r = \sum_{h=1}^H A_{rh}p_h.
+\mathbf q = A\,\mathbf p \\
+q_r = \sum_{h=1}^H A_{rh}\,p_h.
 $$
 
 ---
