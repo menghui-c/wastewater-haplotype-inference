@@ -129,7 +129,7 @@ p_h \leftarrow \max(p_h,\varepsilon), \quad
 \text{renormalize s.t. } \sum_h p_h=1.
 $$
 
-Typical configuration:  
+The typical configurations are:
 $n_{\text{iter}}=10^5$, burn-in $B=2\times10^4$, no thinning, fixed seeds.
 
 ---
@@ -137,10 +137,10 @@ $n_{\text{iter}}=10^5$, burn-in $B=2\times10^4$, no thinning, fixed seeds.
 ### Posterior diagnostics
 
 We compute:
-- Log-likelihood / log-posterior traces
+- Log-posterior traces
 - $\hat R$ convergence diagnostic
 - Posterior mean $\pm$ 95% credible intervals for top-$K$ haplotypes
-- ALT allele posterior projections
+- ALT allele posterior traces
   $$
   f_j^{(t)} = \sum_h a_{hj} p_h^{(t)}
   $$
