@@ -61,7 +61,7 @@ $$
 \mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\,\mathbf q),
 $$
 
-and the log-likelihood (ignoring constants) is:
+and the log-likelihood (without constants) is:
 
 $$
 \ell(\mathbf p;\mathbf k) = \sum_{r=1}^R k_r \log q_r = \mathbf k^\top \log(A\mathbf p).
@@ -88,9 +88,9 @@ $$
 
 ### Collapsed Gibbs sampling via data augmentation
 
-We introduce allocation counts $y_{rh}$: number of reads with pattern $r$ attributed to haplotype $h$.  
-They satisfy $\sum_h y_{rh}=k_r$.  
-The augmented model alternates between allocation and frequency updates:
+We introduce allocation counts $y_{rh}$: number of reads with pattern $r$ that are attributed to haplotype $h$.  
+They satisfy $\sum_h y_{rh}=k_r$ for each r.
+Our model alternates between these two steps:
 
 1. **Allocation step:**
    
@@ -109,13 +109,13 @@ $$
 \quad n_h = \sum_r y_{rh}.
 $$
 
-This yields a **collapsed Gibbs sampler** with Dirichlet–multinomial conjugacy.
+This results in a **collapsed Gibbs sampler** with Dirichlet–multinomial conjugacy.
 
 ---
 
 ### Initialization, constraints, reproducibility
 
-Two parallel chains are run:
+There are two parallel chains:
 - **Data-based initialization:** uses empirical sitewise ALT frequencies $\hat f_j$.  
 - **Uniform initialization:** $\mathbf p^{(0)} = \tfrac{1}{H}\mathbf 1$.  
 
