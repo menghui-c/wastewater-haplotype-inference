@@ -94,20 +94,20 @@ The augmented model alternates between allocation and frequency updates:
 
 1. **Allocation step:**
    
-   $$
-   (y_{r1},\dots,y_{rH})|\mathbf p
-   \sim \mathrm{Multinomial}\!\big(k_r;\, w_{r1},\dots,w_{rH}\big),
-   \quad
-   w_{rh} = \frac{A_{rh}p_h}{q_r}.
-   $$
+$$
+(y_{r1},\dots,y_{rH})|\mathbf p
+\sim \mathrm{Multinomial}\!\big(k_r;\, w_{r1},\dots,w_{rH}\big),
+\quad
+w_{rh} = \frac{A_{rh}p_h}{q_r}.
+$$
 
 3. **Update step:**
    
-   $$
-   \mathbf p|\mathbf y \sim 
-   \mathrm{Dirichlet}(\alpha_1+n_1,\dots,\alpha_H+n_H),
-   \quad n_h = \sum_r y_{rh}.
-   $$
+$$
+\mathbf p|\mathbf y \sim 
+\mathrm{Dirichlet}(\alpha_1+n_1,\dots,\alpha_H+n_H),
+\quad n_h = \sum_r y_{rh}.
+$$
 
 This yields a **collapsed Gibbs sampler** with Dirichlet–multinomial conjugacy.
 
