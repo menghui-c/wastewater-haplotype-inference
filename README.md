@@ -72,6 +72,7 @@ $$
 ### Dirichlet prior on haplotype frequencies
 
 We place a Dirichlet prior on $\mathbf p$:
+
 $$
 \mathbf p \sim \mathrm{Dirichlet}(\boldsymbol\alpha),
 \quad
@@ -93,6 +94,7 @@ They satisfy $\sum_h y_{rh}=k_r$.
 The augmented model alternates between allocation and frequency updates:
 
 1. **Allocation step:**
+   
    $$
    (y_{r1},\dots,y_{rH})|\mathbf p
    \sim \mathrm{Multinomial}\!\big(k_r;\, w_{r1},\dots,w_{rH}\big),
@@ -100,7 +102,8 @@ The augmented model alternates between allocation and frequency updates:
    w_{rh} = \frac{A_{rh}p_h}{q_r}.
    $$
 
-2. **Update step:**
+3. **Update step:**
+   
    $$
    \mathbf p|\mathbf y \sim 
    \mathrm{Dirichlet}(\alpha_1+n_1,\dots,\alpha_H+n_H),
@@ -118,6 +121,7 @@ Two parallel chains are run:
 - **Uniform initialization:** $\mathbf p^{(0)} = \tfrac{1}{H}\mathbf 1$.  
 
 Each iteration enforces:
+
 $$
 p_h \leftarrow \max(p_h,\varepsilon), \quad 
 \text{renormalize s.t. } \sum_h p_h=1.
@@ -211,18 +215,18 @@ chmod +x consensus_based_pipeline.sh
 
 # Step 3. Perform Gibbs sampling
 
-📊 Dependencies
+## 📊 Dependencies
 	•	Python ≥ 3.11
 	•	NumPy, SciPy, Pandas, Matplotlib
 	•	BWA, MAFFT, LoFreq
 	•	Bash ≥ 4.0
 
-🧑‍💻 Implementation details
+## 🧑‍💻 Implementation details
 
 All computations are vectorized with NumPy and sparse matrix operations in SciPy.
 The compatibility matrix (C) is stored in CSR format, and the log-likelihood term is efficiently computed via sparse–dense multiplication.
 
-📚 References
+## 📚 References
 	•	Bernardo, J. M., & Smith, A. F. M. (1994). Bayesian Theory.
 	•	Tanner, M. A., & Wong, W. H. (1987). The calculation of posterior distributions by data augmentation. JASA.
 	•	Liu, J. S. (1994). Collapsed Gibbs sampling and other variance-reduction techniques. JASA.
@@ -232,7 +236,7 @@ The compatibility matrix (C) is stored in CSR format, and the log-likelihood ter
 	•	Li & Durbin (2009). BWA: Burrows–Wheeler Aligner.
 	•	Wilm et al. (2012). LoFreq: sensitive variant calling for low-frequency variants.
 
-📬 Contact
+## 📬 Contact
 
 For questions or collaboration:
 Menghui (Mona) Chen
