@@ -7,6 +7,8 @@
 
 This project implements a Bayesian framework to infer viral haplotype frequencies from deep-sequenced SARS-CoV-2 wastewater data. We first run two workflows to precompute the fixed inputs for inference: (1) read based SNV and encoding pipeline and (2) consensus panel prior pipeline. Then a collapsed Gibbs sampler is used to estimate the haplotype frequencies.
 
+Inline math test: $h \in {1,\dots,H}$
+
 ---
 
 ## 🧠 Model Description
