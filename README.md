@@ -22,7 +22,14 @@ This project implements a Bayesian framework to infer viral haplotype frequencie
 
 ### Compatibility and pattern probabilities
 
-Let $C\in\{0,1\}^{R\times H}$ be the compatibility matrix with $C_{rh}=1$ if pattern $r$ is compatible with haplotype $h$ and $0$ otherwise.
+Let $C\in\{0,1\}^{R\times H}$ be the compatibility matrix: 
+$$
+C_{rh} =
+\begin{cases}
+1, & \text{if pattern } r \text{ is compatible with haplotype } h, \\
+0, & \text{otherwise.}
+\end{cases}
+$$
 
 Define
 
