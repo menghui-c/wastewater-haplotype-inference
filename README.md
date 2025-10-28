@@ -76,12 +76,11 @@ We place a Dirichlet prior on $\mathbf p$:
 $$
 \mathbf p \sim \mathrm{Dirichlet}(\boldsymbol\alpha),
 \quad
-\boldsymbol\alpha = \alpha_0\,\mathbf w.
+\boldsymbol\alpha = \alpha_0\\mathbf w.
 $$
 
 - **Informative prior:** $\mathbf w$ is derived from normalized GISAID haplotype frequencies.  
-  To avoid zeros, a small floor $\varepsilon$ is applied before renormalization.  
-  The prior strength is scaled via $\alpha_0 = \frac{\omega}{1-\omega} N_{\text{eff}}$.
+  To avoid zeros, a small floor $\varepsilon$ is applied before renormalization. 
 
 - **Non-informative prior:** $\mathbf w = \tfrac{1}{H}\mathbf 1$ and $\alpha_0 = H$.
 
