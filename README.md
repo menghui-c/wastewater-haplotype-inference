@@ -15,26 +15,31 @@ This project implements a Bayesian framework to infer viral haplotype frequencie
 
 * A Deep sequenced wastewater sample with $J$ biallelic sites is indexed by $j=1,\dots,J$.
 * Each site has REF/ALT alleles; a haplotype $h\in\{1,\dots,H\}$ is a length $J$ allele vector; with biallelic sites, $H=2^J$.
-* Short reads are grouped into **read patterns** $r=1,\dots,R$; each pattern is a length $J$ string over `\\{0,1,-\\}`(`0` = REF, `1` = ALT,  = not covered).
+* Short reads are grouped into **read patterns** $r=1,\dots,R$; each pattern is a length $J$ string over `{0,1,-}`(`0` = REF, `1` = ALT,  = not covered).
 * Let $k_r$ be the number of reads with pattern $r$; $\sum_{r=1}^R k_r = N$. Write $\mathbf{k}=(k_1,\dots,k_R)^\top$.
 
 ---
 
 ### Compatibility and pattern probabilities
 
-Let $C\in\{0,1\}^{R\times H}$ be the compatibility matrix with $C_{rh}=1$ if pattern $r$ is compatible with haplotype $h$ and $0$ otherwise.  
-Define  
+Let $C\in\{0,1\}^{R\times H}$ be the compatibility matrix with $C_{rh}=1$ if pattern $r$ is compatible with haplotype $h$ and $0$ otherwise.
+
+Define
+
 $$
-A_{rh} = \frac{C_{rh}}{Z_h}, \quad 
-Z_h = \sum_{r=1}^R C_{rh}, \quad
-\sum_{r=1}^R A_{rh} = 1.
+A_{rh}=\frac{C_{rh}}{Z_h},\qquad
+Z_h=\sum_{r=1}^R C_{rh},\qquad
+\sum_{r=1}^R A_{rh}=1.
 $$
 
-Under haplotype $h$, all compatible patterns share equal probability.  
-Let $\mathbf p=(p_1,\dots,p_H)^\top$ denote haplotype frequencies on the $H$-simplex.  
-The induced pattern distribution is  
+Under haplotype $h$, all compatible patterns share equal probability.
+Let $\mathbf p=(p_1,\dots,p_H)^\top$ denote haplotype frequencies on the $H$-simplex.
+
+The induced pattern distribution is
+
 $$
-\mathbf q = A\,\mathbf p, \qquad q_r = \sum_{h=1}^H A_{rh}\,p_h.
+\mathbf q = A\,\mathbf p,\qquad
+q_r=\sum_{h=1}^H A_{rh}\,p_h.
 $$
 
 ---
