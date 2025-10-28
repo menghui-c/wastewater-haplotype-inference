@@ -149,16 +149,16 @@ We compute:
 ---
 
 ## ⚙️ Pipeline structure
-├── read_based_pipeline.sh         # Read-based SNV and Encoding pipeline
-├── consensus_based_pipeline.sh    # Consensus Panel Prior pipeline
-├── get_snvs.py                    # SNV extraction through LoFreq
-├── filter_lofreq_vcf.py           # Variant filtering (VAF, RAF, DP)
-├── extract_snv_table.py           # Generate SNVs summary table
-├── read_encoding.py               # Get read patterns {0,1,-}
-├── compute_haplotype_freqs_allele.py       # Compute data-based initial haplotype frequencies
-├── consensus_summarize_variant_alleles.py  # Summarize consensus allele frequencies
-├── consensus_haplotype_freq.py    # Compute panel-based haplotype frequencies as priors
-├── gibbs_sampler.py               # Whole collapsed Gibbs sampler code for haplotype inference
+├── read_based_pipeline.sh         # Read-based SNV and Encoding pipeline <br>
+├── consensus_based_pipeline.sh    # Consensus Panel Prior pipeline <br>
+├── get_snvs.py                    # SNV extraction through LoFreq <br>
+├── filter_lofreq_vcf.py           # Variant filtering (VAF, RAF, DP) <br>
+├── extract_snv_table.py           # Generate SNVs summary table <br>
+├── read_encoding.py               # Get read patterns {0,1,-} <br>
+├── compute_haplotype_freqs_allele.py       # Compute data-based initial haplotype frequencies <br>
+├── consensus_summarize_variant_alleles.py  # Summarize consensus allele frequencies <br>
+├── consensus_haplotype_freq.py    # Compute panel-based haplotype frequencies as priors <br>
+├── gibbs_sampler.py               # Whole collapsed Gibbs sampler code for haplotype inference <br>
 
 ---
 
@@ -230,8 +230,7 @@ chmod +x consensus_based_pipeline.sh
 
 ## 🧑‍💻 Implementation details
 
-All computations are vectorized with NumPy and sparse matrix operations in SciPy.
-The compatibility matrix (C) is stored in CSR format, and the log-likelihood term is efficiently computed via sparse–dense multiplication.
+All the calculations are vectorized using sparse matrix operations in NumPy and SciPy. The compatibility matrix (C) is stored in CSR format, and the log-likelihood terms are efficiently calculated through sparse-dense multiplication.
 	
 ---
 
