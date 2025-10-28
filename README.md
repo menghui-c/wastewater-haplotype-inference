@@ -58,7 +58,7 @@ $$
 Given $\mathbf p$, the pattern counts follow a multinomial model:
 
 $$
-\mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\\mathbf q),
+\mathbf K|\mathbf p \sim \mathrm{Multinomial}(N;\mathbf q),
 $$
 
 and the log-likelihood (without constants) is:
