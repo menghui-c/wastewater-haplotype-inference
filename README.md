@@ -219,7 +219,7 @@ chmod +x consensus_based_pipeline.sh
 ./consensus_based_pipeline.sh \
   -r reference.fasta \
   -s samples.fasta \
-  --readdir path/to/read_based_output \
+  --readdir results/read_based_output \
   [-t threads] \
   [-o outdir]
 
