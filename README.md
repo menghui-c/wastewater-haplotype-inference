@@ -245,7 +245,7 @@ All the calculations are vectorized using sparse matrix operations in NumPy and 
 ## 📬 Contact
 
 For questions or collaboration:
-Menghui (Mona) Chen
-📧 menghui.chen@emory.edu
+Prof. Katia Koelle
+📧 katia.koelle@emory.edu
 
 
