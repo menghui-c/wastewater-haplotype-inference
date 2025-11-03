@@ -191,7 +191,6 @@ Paired-end (recommended)
   -r reference.fasta \
   -1 short_read_sequencing_R1.fastq \
   -2 short_read_sequencing_R2.fastq \
-  --primer-bed primers.bed \
   -t 8 \
   --min-cov 30 \
   --min-alt-freq 0.10 \
@@ -203,7 +202,6 @@ Single-file interleaved
   -r reference.fasta \
   -q short_read_sequencing.fastq \
   --interleaved \
-  --primer-bed primers.bed \
   -t 8 \
   --outdir results/read_based_output
 
